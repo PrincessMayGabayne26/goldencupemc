@@ -48,39 +48,6 @@ goldencupemc/
 
 No special prerequisites needed. This is a static website that can be opened directly in a web browser.
 
-### Installation
-
-1. Clone or download this repository
-2. Open `index.html` in your web browser
-
-### Local Development
-
-For a better development experience, you can use a local server:
-
-**Using Python:**
-
-```bash
-# Python 3
-python -m http.server 8000
-
-# Python 2
-python -m SimpleHTTPServer 8000
-```
-
-**Using Node.js (with http-server):**
-
-```bash
-npx http-server
-```
-
-**Using PHP:**
-
-```bash
-php -S localhost:8000
-```
-
-Then navigate to `http://localhost:8000` in your browser.
-
 ## Features Breakdown
 
 ### Navigation
@@ -152,6 +119,5 @@ Then navigate to `http://localhost:8000` in your browser.
 
 ## Notes
 
-- The quote form in the hero section currently doesn't have backend functionality. You'll need to integrate it with a form handling service or backend API.
 - All images are stored locally in the `assets/img/` directory.
 - External dependencies (Bootstrap, Font Awesome) are loaded via CDN.
