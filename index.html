@@ -1,3 +1,7 @@
+<?php
+include 'submit.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -104,44 +108,55 @@
                 <h5 class="text-center text-black fw-bold mb-3">
                   Get A Free Quote
                 </h5>
-                <form>
+
+                <div id="formMessage" class="mt-3 text-center"></div>
+
+                <form id="quoteForm" action="include/submit.php" method="POST" onsubmit="return submitQuoteForm(event)">
                   <input
                     type="text"
                     class="form-control mb-2"
                     placeholder="Name"
+                    name="name"
+                    required
                   />
                   <input
                     type="text"
                     class="form-control mb-2"
                     placeholder="Company Name"
+                    name="company"
+                    required
                   />
                   <input
                     type="text"
                     class="form-control mb-2"
                     placeholder="Mobile Number"
+                    name="number"
+                    required
                   />
                   <input
                     type="email"
                     class="form-control mb-2"
                     placeholder="Email"
+                    name="email"
+                    required
                   />
                   <div class="select-wrapper mb-2">
-                    <select class="form-control">
-                      <option>Sales</option>
-                      <option>Rental</option>
+                    <select class="form-control" name="service">
+                      <option value="Sales">Sales</option>
+                      <option value="Rental">Rental</option>
                     </select>
                   </div>
                   <div class="select-wrapper mb-2">
-                    <select class="form-control">
-                      <option>Colored</option>
-                      <option>Black & White</option>
+                    <select class="form-control" name="color">
+                      <option value="Colored">Colored</option>
+                      <option value="Black & White">Black & White</option>
                     </select>
                   </div>
                   <div class="select-wrapper mb-2">
-                    <select class="form-control">
-                      <option>Less than 5,000 copies</option>
-                      <option>Less than 10,000 copies</option>
-                      <option>More than 20,000 copies</option>
+                    <select class="form-control" name="volume">
+                      <option value="Less than 5,000 copies">Less than 5,000 copies</option>
+                      <option value="Less than 10,000 copies">Less than 10,000 copies</option>
+                      <option value="More than 20,000 copies">More than 20,000 copies</option>
                     </select>
                   </div>
                   <button type="submit" class="btn btn-secondary w-100">

@@ -182,3 +182,39 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", updateActiveLink);
   updateActiveLink(); // Initial call
 });
+
+// Submit form without page refresh and display success/error message
+document.getElementById('quoteForm').addEventListener('submit', function (e) {
+  e.preventDefault(); 
+
+  const loadingScreen = document.getElementById('loading-screen');
+  const formMessage   = document.getElementById('formMessage');
+
+  loadingScreen.style.display = 'flex';
+  formMessage.innerHTML       = '';
+
+  const formData = new FormData(this);
+
+  fetch('include/submit.php', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    loadingScreen.style.display = 'none';
+
+    if (data.status === 'success') {
+      formMessage.innerHTML =
+        '<div class="alert alert-success">Message sent successfully!</div>';
+      document.getElementById('quoteForm').reset();
+    } else {
+      formMessage.innerHTML =
+        '<div class="alert alert-danger">Failed to send message.</div>';
+    }
+  })
+  .catch(error => {
+    loadingScreen.style.display = 'none';
+    formMessage.innerHTML =
+      '<div class="alert alert-danger">Server error. Please try again.</div>';
+  });
+});
